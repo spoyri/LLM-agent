@@ -54,7 +54,7 @@ def generate_content(client : genai.Client, messages: list[types.Content], verbo
         if verbose:
             print("Prompt tokens:", response.usage_metadata.prompt_token_count)
             print("Response tokens:", response.usage_metadata.candidates_token_count)
-        if response.ca.function_calls:
+        if response.function_calls:
             function_responses = []
             for function_call_part in response.function_calls:
                 function_call_result = call_function(function_call_part, verbose)
